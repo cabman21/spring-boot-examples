@@ -1,0 +1,93 @@
+spring:
+    profiles: 
+        active: local
+
+---
+
+spring:
+    profiles: prd
+    session.store-type: none
+    datasource:
+        #driver-class-name: com.mysql.cj.jdbc.Driver
+        #url: jdbc:mysql://database-mysql.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:3306/mysqldb?useSSL=false
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@database-oralce.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
+        username: admin
+        password: '!qawsedrf$'
+        tomcat:
+            removeAbandoned: true
+            removeAbandonedTimeout: 120
+            logAbandoned: true
+            initialSize: 2
+            maxActive: 8
+            maxIdle: 4
+            minIdle: 2
+            maxWait: 10000
+            validationQuery: select 1
+            testOnBorrow: true
+            testOnConnect: true
+            testWhileIdle: true
+
+server:
+    address: 127.0.0.1
+    port: 9080
+
+mybatis:
+    type-handlers-package: com.example.demo.config
+    mapper-locations: classpath:mapper/**/*Mapper.xml
+    configuration:
+        lazyLoadingEnabled: true
+        aggressiveLazyLoading: false
+        mapUnderscoreToCamelCase: true
+
+upload: 
+    path: /upload
+
+logging:
+    level:
+        com.example.demo: INFO
+
+---
+
+spring:
+    profiles: local
+    session.store-type: none
+    datasource:
+        #driver-class-name: com.mysql.cj.jdbc.Driver
+        #url: jdbc:mysql://database-mysql.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:3306/mysqldb?useSSL=false
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@database-oralce19.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
+        username: admin
+        password: '!qawsedrf$'
+        tomcat:
+            removeAbandoned: true
+            removeAbandonedTimeout: 120
+            logAbandoned: true
+            initialSize: 2
+            maxActive: 8
+            maxIdle: 4
+            minIdle: 2
+            maxWait: 10000
+            validationQuery: select 1
+            testOnBorrow: true
+            testOnConnect: true
+            testWhileIdle: true
+
+server:
+    address: 127.0.0.1
+    port: 9080
+
+mybatis:
+    type-handlers-package: com.example.demo.config
+    mapper-locations: classpath:mapper/**/*Mapper.xml
+    configuration:
+        lazyLoadingEnabled: true
+        aggressiveLazyLoading: false
+        mapUnderscoreToCamelCase: true
+
+upload: 
+    path: C:/upload
+
+logging:
+    level:
+        com.example.demo: DEBUG

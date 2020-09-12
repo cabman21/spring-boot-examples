@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.demo.service.mapper.EmpMapper">
+
+	<select id="findAll" parameterType="hashmap"
+		resultType="hashmap">
+	<![CDATA[
+		SELECT /* com.example.demo.service.mapper.EmpMapper.findAll */
+		       a.empno,
+		       a.ename,
+		       a.job,
+		       a.mgr,
+		       a.hiredate,
+		       a.sal,
+		       a.comm,
+		       a.deptno
+		  FROM emp a
+		 WHERE 1 = 1
+	]]>
+		<if test="empno != null and empno != ''">
+			AND a.empno = #{empno}
+		</if>
+		<if test="ename != null and ename != ''">
+			AND a.ename LIKE CONCAT('%', #{ename}, '%')
+		</if>
+		<if test="deptno != null and deptno != ''">
+			AND a.deptno = #{deptno}
+		</if>
+	<![CDATA[
+		 ORDER BY a.ename
+		 LIMIT #{limit} OFFSET #{offset}
+	]]>
+	</select>
+
+	<select id="findOne" parameterType="hashmap"
+		resultType="hashmap">
+	<![CDATA[
+		SELECT /* com.example.demo.service.mapper.EmpMapper.findOne */
+		       a.empno,
+		       a.ename,
+		       a.job,
+		       a.mgr,
+		       a.hiredate,
+		       a.sal,
+		       a.comm,
+		       a.deptno
+		  FROM emp a
+		 WHERE a.empno = #{empno}
+	]]>
+	</select>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="empno">
+	<![CDATA[
+		INSERT /* com.example.demo.service.mapper.EmpMapper.insert */
+		  INTO emp (
+		       empno,
+		       ename,
+		       job,
+		       mgr,
+		       hiredate,
+		       sal,
+		       comm,
+		       deptno
+		) VALUES (
+		       #{empno},
+		       #{ename},
+		       #{job},
+		       #{mgr},
+		       #{hiredate},
+		       #{sal},
+		       #{comm},
+		       #{deptno}
+		)
+	]]>
+	</insert>
+
+	<update id="update">
+	<![CDATA[
+		UPDATE /* com.example.demo.service.mapper.EmpMapper.update */
+		       emp a
+		   SET empno = #{empno}
+	]]>
+		<if test="job != null and job != ''">
+			, job = #{job}
+		</if>
+		<if test="mgr != null and mgr != ''">
+			, mgr = #{mgr}
+		</if>
+		<if test="hiredate != null and hiredate != ''">
+			, hiredate = #{hiredate}
+		</if>
+		<if test="sal != null and sal != ''">
+			, sal = #{sal}
+		</if>
+		<if test="comm != null and comm != ''">
+			, comm = #{comm}
+		</if>
+		<if test="deptno != null and deptno != ''">
+			, deptno = #{deptno}
+		</if>
+	<![CDATA[
+		 WHERE a.empno = #{empno}
+	]]>
+	</update>
+
+	<delete id="delete">
+	<![CDATA[
+		DELETE /* com.example.demo.service.mapper.EmpMapper.delete */
+		  FROM emp
+		 WHERE empno = #{empno}
+		]]>
+	</delete>
+
+</mapper>
