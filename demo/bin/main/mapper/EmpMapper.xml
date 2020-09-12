@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	<![CDATA[
 		 ORDER BY a.ename
-		 OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY
+		 LIMIT #{limit} OFFSET #{offset}
 	]]>
 	</select>
 

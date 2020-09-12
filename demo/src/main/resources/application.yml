@@ -8,10 +8,10 @@ spring:
     profiles: prd
     session.store-type: none
     datasource:
-        #driver-class-name: com.mysql.cj.jdbc.Driver
-        #url: jdbc:mysql://database-mysql.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:3306/mysqldb?useSSL=false
-        driver-class-name: oracle.jdbc.OracleDriver
-        url: jdbc:oracle:thin:@database-oralce.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://database-mysql.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:3306/mysqldb?useSSL=false
+        #driver-class-name: oracle.jdbc.OracleDriver
+        #url: jdbc:oracle:thin:@database-oralce19.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
         username: admin
         password: '!qawsedrf$'
         tomcat:
@@ -30,7 +30,7 @@ spring:
 
 server:
     address: 127.0.0.1
-    port: 9080
+    port: 8080
 
 mybatis:
     type-handlers-package: com.example.demo.config
@@ -53,10 +53,10 @@ spring:
     profiles: local
     session.store-type: none
     datasource:
-        #driver-class-name: com.mysql.cj.jdbc.Driver
-        #url: jdbc:mysql://database-mysql.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:3306/mysqldb?useSSL=false
-        driver-class-name: oracle.jdbc.OracleDriver
-        url: jdbc:oracle:thin:@database-oralce19.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://database-mysql.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:3306/mysqldb?useSSL=false
+        #driver-class-name: oracle.jdbc.OracleDriver
+        #url: jdbc:oracle:thin:@database-oralce19.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
         username: admin
         password: '!qawsedrf$'
         tomcat:
@@ -75,7 +75,7 @@ spring:
 
 server:
     address: 127.0.0.1
-    port: 9080
+    port: 8080
 
 mybatis:
     type-handlers-package: com.example.demo.config
