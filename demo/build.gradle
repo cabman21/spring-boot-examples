@@ -4,10 +4,12 @@ plugins {
 	id 'java'
 }
 
+apply plugin: 'war'
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+/*
 jar {
     manifest {
         attributes('Main-Class': 'com.example.demo.DemoApplication')
@@ -16,8 +18,10 @@ jar {
         configurations.compileClasspath.filter { it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+*/
 
 configurations {
+	providedRuntime
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -35,11 +39,10 @@ dependencies {
 	implementation 'com.oracle.database.jdbc:ojdbc8'
 	implementation 'com.oracle.ojdbc:orai18n'
 	runtimeOnly 'mysql:mysql-connector-java'
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }
 
 test {
