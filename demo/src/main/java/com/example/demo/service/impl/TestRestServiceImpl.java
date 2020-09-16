@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.service.TestRestService;
+import com.example.demo.service.dto.EmpDTO;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
@@ -31,7 +33,7 @@ public class TestRestServiceImpl implements TestRestService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Object> findAll() throws Exception {
-		log.debug("Request to get all employees");
+		log.debug("Request to get all vehicles");
 
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -61,5 +63,10 @@ public class TestRestServiceImpl implements TestRestService {
 		log.debug("##### List.size() {}", list.size());
 
 		return list;
+	}
+
+	@Override
+	public void insert() throws Exception {
+		log.debug("Request to save a vehicle : {}", "");
 	}
 }
