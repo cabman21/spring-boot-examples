@@ -29,6 +29,7 @@ public class EmpServiceImpl implements EmpService {
 	@Transactional(readOnly = true)
 	public List<Object> findAll(EmpDTO empDTO) throws Exception {
 		log.debug("Request to get all employees");
+		
 		return mapper.findAll(empDTO);
 	}
 
