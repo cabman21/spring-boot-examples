@@ -5,10 +5,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.example.demo.service.dto.EmpDTO;
+import com.example.demo.service.dto.EmpVO;
 
 public interface EmpMapper {
 
-	public List<Object> findAll(EmpDTO empDTO) throws Exception;
+	public List<Object> findAll(EmpVO empVO) throws Exception;
 
 	public Object findOne(@Param("empno") String empno) throws Exception;
 

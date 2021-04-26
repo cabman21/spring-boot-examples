@@ -2,16 +2,15 @@ package com.example.demo.service.impl;
 
 import com.example.demo.service.EmpService;
 import com.example.demo.service.dto.EmpDTO;
+import com.example.demo.service.dto.EmpVO;
 import com.example.demo.service.mapper.EmpMapper;
 
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
@@ -27,10 +26,10 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Object> findAll(EmpDTO empDTO) throws Exception {
+	public List<Object> findAll(EmpVO empVO) throws Exception {
 		log.debug("Request to get all employees");
 		
-		return mapper.findAll(empDTO);
+		return mapper.findAll(empVO);
 	}
 
 	@Override
@@ -44,7 +43,7 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public EmpDTO insert(EmpDTO empDTO, Map<String, MultipartFile> files) throws Exception {
+	public EmpDTO insert(EmpDTO empDTO) throws Exception {
 		log.debug("Request to save a employee : {}", empDTO.getEmpno());
 
 		int count = mapper.insert(empDTO);
@@ -57,7 +56,7 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public EmpDTO update(EmpDTO empDTO, Map<String, MultipartFile> files) throws Exception {
+	public EmpDTO update(EmpDTO empDTO) throws Exception {
 		log.debug("Request to update a employee : {}", empDTO.getEmpno());
 
 		int count = mapper.update(empDTO);

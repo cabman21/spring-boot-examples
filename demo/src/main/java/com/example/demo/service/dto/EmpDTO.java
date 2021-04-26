@@ -13,10 +13,6 @@ public class EmpDTO implements Serializable {
 
 	private static final long serialVersionUID = 334152017587974132L;
 
-	private int offset = 0;
-
-	private int limit = 10;
-
 	private String empno = null;
 
 	private String ename = null;
