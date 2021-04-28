@@ -56,7 +56,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<![CDATA[
 		INSERT /* com.example.demo.service.mapper.EmpMapper.insert */
 		  INTO emp (
-		       empno,
 		       ename,
 		       job,
 		       mgr,
@@ -65,7 +64,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		       comm,
 		       deptno
 		) VALUES (
-		       #{empno},
 		       #{ename},
 		       #{job},
 		       #{mgr},
@@ -83,6 +81,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		       emp a
 		   SET empno = #{empno}
 	]]>
+		<if test="ename != null and ename != ''">
+			, ename = #{ename}
+		</if>
 		<if test="job != null and job != ''">
 			, job = #{job}
 		</if>
