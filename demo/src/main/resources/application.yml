@@ -1,6 +1,6 @@
 spring:
     profiles: 
-        active: local
+        active: locaL
 
 ---
 
@@ -9,11 +9,11 @@ spring:
     session.store-type: none
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://database-mysql.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:3306/mysqldb?useSSL=false
+        url: jdbc:mysql://mysql-sampledb.c5b2kwuyzobu.ap-northeast-2.rds.amazonaws.com:3306/employees?useSSL=false
         #driver-class-name: oracle.jdbc.OracleDriver
         #url: jdbc:oracle:thin:@database-oralce19.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
-        username: admin
-        password: '!qawsedrf$'
+        username: scott
+        password: 'tiger12345'
         tomcat:
             removeAbandoned: true
             removeAbandonedTimeout: 120
