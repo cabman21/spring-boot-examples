@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update">
 	<![CDATA[
 		UPDATE /* com.example.demo.service.mapper.EmpMapper.update */
-		       emp a
+		       emp
 		   SET empno = #{empno}
 	]]>
 		<if test="ename != null and ename != ''">
