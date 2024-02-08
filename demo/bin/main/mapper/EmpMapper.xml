@@ -78,9 +78,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update">
 	<![CDATA[
 		UPDATE /* com.example.demo.service.mapper.EmpMapper.update */
-		       emp a
-		   SET empno = #{empno}
+		       emp
 	]]>
+		<set>
 		<if test="ename != null and ename != ''">
 			, ename = #{ename}
 		</if>
@@ -102,8 +102,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="deptno != null and deptno != ''">
 			, deptno = #{deptno}
 		</if>
+		</set>
 	<![CDATA[
-		 WHERE a.empno = #{empno}
+		 WHERE empno = #{empno}
 	]]>
 	</update>
 

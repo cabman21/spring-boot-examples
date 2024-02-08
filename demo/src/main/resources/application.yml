@@ -1,19 +1,11 @@
 spring:
-    profiles: 
-        active: local
-
----
-
-spring:
-    profiles: prd
-    session.store-type: none
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://mysql-sampledb.c5b2kwuyzobu.ap-northeast-2.rds.amazonaws.com:3306/employees?useSSL=false
+        url: jdbc:mysql://localhost:3306/template?useSSL=false
         #driver-class-name: oracle.jdbc.OracleDriver
-        #url: jdbc:oracle:thin:@database-oralce19.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
+        #url: jdbc:oracle:thin:@localhost:1521:template
         username: scott
-        password: 'tiger12345'
+        password: 'tiger'
         tomcat:
             removeAbandoned: true
             removeAbandonedTimeout: 120
@@ -39,55 +31,3 @@ mybatis:
         lazyLoadingEnabled: true
         aggressiveLazyLoading: false
         mapUnderscoreToCamelCase: true
-
-upload: 
-    path: /upload
-
-logging:
-    level:
-        com.example.demo: INFO
-
----
-
-spring:
-    profiles: local
-    session.store-type: none
-    datasource:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/todos?useSSL=false
-        #driver-class-name: oracle.jdbc.OracleDriver
-        #url: jdbc:oracle:thin:@database-oralce19.cai6apkzxubq.ap-northeast-2.rds.amazonaws.com:1521:ORACLEDB
-        username: todos-user
-        password: 'dummytodos'
-        tomcat:
-            removeAbandoned: true
-            removeAbandonedTimeout: 120
-            logAbandoned: true
-            initialSize: 2
-            maxActive: 8
-            maxIdle: 4
-            minIdle: 2
-            maxWait: 10000
-            validationQuery: select 1
-            testOnBorrow: true
-            testOnConnect: true
-            testWhileIdle: true
-
-server:
-    address: 127.0.0.1
-    port: 8080
-
-mybatis:
-    type-handlers-package: com.example.demo.config
-    mapper-locations: classpath:mapper/**/*Mapper.xml
-    configuration:
-        lazyLoadingEnabled: true
-        aggressiveLazyLoading: false
-        mapUnderscoreToCamelCase: true
-
-upload: 
-    path: C:/upload
-
-logging:
-    level:
-        com.example.demo: DEBUG
