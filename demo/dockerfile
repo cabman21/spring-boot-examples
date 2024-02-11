@@ -1,10 +1,18 @@
-FROM eclipse-temurin:17-jdk-alpine as builder
-COPY . /app
-WORKDIR /app
-CMD ["./gradlew", "clean", "build"]
-ARG JAR_FILE_PATH=build/libs/*.jar
+FROM gradle:8.6.0-jdk17-alpine as builder
+WORKDIR /build
+
+COPY build.gradle settings.gradle /build/
+RUN gradle build -x test --parallel --continue > /dev/null 2>&1 || true
+
+COPY . /build
+RUN gradle build -x test --parallel
 
 FROM eclipse-temurin:17-jdk-alpine
-COPY --from=builder ${JAR_FILE_PATH} app.jar
 RUN apk --no-cache add curl
+WORKDIR /app
+
+COPY --from=builder /build/build/libs/demo-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
+
+USER nobody
 ENTRYPOINT ["java", "-jar", "app.jar"]
