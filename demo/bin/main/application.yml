@@ -20,10 +20,6 @@ spring:
             testOnConnect: true
             testWhileIdle: true
 
-server:
-    address: 127.0.0.1
-    port: 8080
-
 mybatis:
     type-handlers-package: com.example.demo.config
     mapper-locations: classpath:mapper/**/*Mapper.xml
