@@ -2,8 +2,6 @@ FROM eclipse-temurin:17-jdk-alpine as builder
 WORKDIR /app
 CMD ["./gradlew", "clean", "build"]
 ARG JAR_FILE_PATH=build/libs/*.jar
-
-FROM eclipse-temurin:17-jdk-alpine
+COPY ${JAR_FILE_PATH} app.jar
 RUN apk --no-cache add curl
-COPY --from=builder ${JAR_FILE_PATH} app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
