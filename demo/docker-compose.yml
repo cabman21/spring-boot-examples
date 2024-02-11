@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-demo
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: scott
+    restart: always
+    init: true
+    networks:
+      default: {}
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+  was:
+    image: spring-boot-examples/demo:0.5.0
+    container_name: spring-boot-demo
+    restart: always
+    init: true
+    networks:
+      default: {}
+    ports:
+      - "8080:8080"
+networks:
+  default:
+    driver: bridge
