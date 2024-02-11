@@ -1,9 +1,9 @@
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/template?useSSL=false
+        url: jdbc:mysql://localhost:3306/scott?useSSL=false&allowPublicKeyRetrieval=true
         #driver-class-name: oracle.jdbc.OracleDriver
-        #url: jdbc:oracle:thin:@localhost:1521:template
+        #url: jdbc:oracle:thin:@localhost:1521:scott
         username: scott
         password: 'tiger'
         tomcat:
