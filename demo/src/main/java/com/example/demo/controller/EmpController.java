@@ -38,7 +38,8 @@ public class EmpController {
 	}
 
 	@GetMapping("/employees/{empno}")
-	public ResponseEntity<Object> getOne(@PathVariable String empno, HttpServletRequest request) throws Exception {
+	public ResponseEntity<Object> getOne(@PathVariable("empno") String empno, HttpServletRequest request)
+			throws Exception {
 		log.debug("REST request to get a employee : {}", empno);
 
 		Object obj = empService.findOne(empno);
@@ -59,7 +60,7 @@ public class EmpController {
 	}
 
 	@PutMapping("/employees/{empno}")
-	public ResponseEntity<EmpDTO> update(@PathVariable String empno, @RequestBody EmpDTO empDTO,
+	public ResponseEntity<EmpDTO> update(@PathVariable("empno") String empno, @RequestBody EmpDTO empDTO,
 			HttpServletRequest request) throws Exception {
 		log.debug("REST request to update a employee : {}", empno);
 
@@ -74,7 +75,8 @@ public class EmpController {
 	}
 
 	@DeleteMapping("/employees/{empno}")
-	public ResponseEntity<Boolean> delete(@PathVariable String empno, HttpServletRequest request) throws Exception {
+	public ResponseEntity<Boolean> delete(@PathVariable("empno") String empno, HttpServletRequest request)
+			throws Exception {
 		log.debug("REST request to delete a employee : {}", empno);
 
 		boolean success = false;
