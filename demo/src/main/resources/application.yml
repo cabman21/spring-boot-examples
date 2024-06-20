@@ -31,13 +31,13 @@ mybatis:
 cloud:
   aws:
     credentials:
-      access-key: AKIAUFNO2TNFWOVMD6XX
-      secret-key: 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
+      access-key: 
+      secret-key: 
     region:
       static: ap-northeast-2
     stack:
       auto: false
     sqs:
       queue:
-        name: linq-dev-ap2-sqs-mq-01
-        url: https://sqs.ap-northeast-2.amazonaws.com/286518844235/linq-dev-ap2-sqs-mq-01
+        name: linq-prd-ap2-sqs-standard-01
+        url: https://sqs.ap-northeast-2.amazonaws.com/211125359962/linq-prd-ap2-sqs-standard-01

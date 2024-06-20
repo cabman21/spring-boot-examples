@@ -33,11 +33,15 @@ import java.util.List;
 */
 public class SQSExample {
  public static void main(String[] args) {
-     String queueName = "queue" + System.currentTimeMillis();
+//     String queueName = "queue" + System.currentTimeMillis();
+     
+     
      SqsClient sqsClient = SqsClient.builder()
              .region(Region.AP_NORTHEAST_2)
              .build();
 
+     String queueName = "linq-prd-ap2-sqs-standard-02-test";
+     
      // Perform various tasks on the Amazon SQS queue.
      String queueUrl = createQueue(sqsClient, queueName);
      listQueues(sqsClient);

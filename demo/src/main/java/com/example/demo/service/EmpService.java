@@ -15,5 +15,5 @@ public interface EmpService {
 
 	EmpDTO update(EmpDTO empDTO) throws Exception;
 
-	public int delete(String empno) throws Exception;
+	int delete(String empno) throws Exception;
 }
