@@ -1,4 +1,7 @@
 ## Scott Schema 생성
+```
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'root';
+```
 
 ### Schema 생성
 ```

@@ -12,8 +12,6 @@ services:
       default: {}
     ports:
       - "3306:3306"
-    expose:
-      - 3306
   was:
     image: spring-boot-examples/demo:0.5.0
     container_name: spring-boot-demo
@@ -23,6 +21,8 @@ services:
       default: {}
     ports:
       - "8080:8080"
+    depends_on:
+     - mysql
 networks:
   default:
     driver: bridge
