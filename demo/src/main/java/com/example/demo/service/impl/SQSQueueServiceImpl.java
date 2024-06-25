@@ -35,11 +35,11 @@ public class SQSQueueServiceImpl implements SQSQueueService {
 
 	private final Logger log = LoggerFactory.getLogger(SQSQueueServiceImpl.class);
 
+	private SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
+
 	@Override
 	public List<String> listQueue(String queueName) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
-
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
 
         ListQueuesRequest listQueuesRequest = ListQueuesRequest.builder().queueNamePrefix(queueName).build();
 
@@ -52,8 +52,6 @@ public class SQSQueueServiceImpl implements SQSQueueService {
 	public String getQueueUrl(String queueName) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
 
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
-
 		GetQueueUrlRequest getQueueUrlRequest = GetQueueUrlRequest.builder().queueName(queueName).build();
 
 		GetQueueUrlResponse listQueuesResponse = sqsClient.getQueueUrl(getQueueUrlRequest);
@@ -65,8 +63,6 @@ public class SQSQueueServiceImpl implements SQSQueueService {
 	public String createQueue(String queueName) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
 
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
-
 		CreateQueueRequest createQueueRequest = CreateQueueRequest.builder().queueName(queueName).build();
 
 		CreateQueueResponse response = sqsClient.createQueue(createQueueRequest);
@@ -77,8 +73,6 @@ public class SQSQueueServiceImpl implements SQSQueueService {
 	@Override
 	public String purgeQueue(String queueName) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
-
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
 		
 		String queueUrl = this.getQueueUrl(queueName);
 		
@@ -94,8 +88,6 @@ public class SQSQueueServiceImpl implements SQSQueueService {
 	@Override
 	public String tagQueue(String queueName, TagDTO tagDTO) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
-
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
 		
 		String queueUrl = this.getQueueUrl(queueName);
 		
@@ -114,8 +106,6 @@ public class SQSQueueServiceImpl implements SQSQueueService {
 	@Override
 	public String untagQueue(String queueName, TagDTO tagDTO) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
-
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
 		
 		String queueUrl = this.getQueueUrl(queueName);
 		
@@ -131,8 +121,6 @@ public class SQSQueueServiceImpl implements SQSQueueService {
 	@Override
 	public String deleteQueue(String queueName) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
-
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
 		
 		String queueUrl = this.getQueueUrl(queueName);
 		

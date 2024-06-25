@@ -34,6 +34,8 @@ public class SQSMessageServiceImpl implements SQSMessageService {
 
 	private SQSQueueService sqsQueueService;
 
+	private SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
+
 	public SQSMessageServiceImpl(SQSQueueService sqsQueueService) {
 		this.sqsQueueService = sqsQueueService;
 	}
@@ -41,8 +43,6 @@ public class SQSMessageServiceImpl implements SQSMessageService {
 	@Override
 	public MessageDTO sendMessage(String queueName, GpsDTO gpsDTO) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
-
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
 
 		String queueUrl = sqsQueueService.getQueueUrl(queueName);
 
@@ -67,8 +67,6 @@ public class SQSMessageServiceImpl implements SQSMessageService {
 	@Override
 	public List<MessageDTO> receiveMessage(String queueName) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
-
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
 
 		String queueUrl = sqsQueueService.getQueueUrl(queueName);
 
@@ -96,8 +94,6 @@ public class SQSMessageServiceImpl implements SQSMessageService {
 	public List<Message> receive(String queueName) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
 
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
-
 		String queueUrl = sqsQueueService.getQueueUrl(queueName);
 
 		log.debug("Request to delete a queueUrl : {}", queueUrl);
@@ -113,8 +109,6 @@ public class SQSMessageServiceImpl implements SQSMessageService {
 	@Override
 	public String deleteMessage(String queueName, Message _message) throws Exception {
 		log.debug("Request to delete a queueName : {}", queueName);
-
-		SqsClient sqsClient = SqsClient.builder().region(Region.AP_NORTHEAST_2).build();
 
 		String queueUrl = sqsQueueService.getQueueUrl(queueName);
 
