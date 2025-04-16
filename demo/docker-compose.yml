@@ -12,6 +12,18 @@ services:
       default: {}
     ports:
       - "3306:3306"
+  cubrid:
+    image: cubrid/cubrid:latest
+    container_name: cubrid-demo
+    environment:
+      CUBRID_DB: scott
+      CUBRID_PASSWORD: tiger
+    restart: always
+    init: true
+    networks:
+      default: {}
+    ports:
+      - "30000:30000"
   was:
     image: spring-boot-examples/demo:0.5.0
     container_name: spring-boot-demo
@@ -23,6 +35,7 @@ services:
       - "8080:8080"
     depends_on:
      - mysql
+     - cubrid
 networks:
   default:
     driver: bridge
